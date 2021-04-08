@@ -1,0 +1,26 @@
+.videos{
+    height:100vh;
+    background-color:#254E58;
+    
+
+}
+
+.videos iframe{
+    position: relative;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%)
+}
+
+@media screen and (max-width: 500px){
+    .videos iframe{
+        width: 70vw;
+        height:auto;
+        position: relative;
+        top:40%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        margin-top:7vh;
+
+    }
+}

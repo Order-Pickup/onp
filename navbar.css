@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Shanti&family=Signika:wght@300;400;500;600;700&display=swap');
+
+html{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Shanti
+}
+
+body
+{
+    position: relative;
+    background: #ffffff;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    color:aqua;
+}
+
+.collapse
+{
+    padding-right: 15px;
+}
+
+.landingPage{
+    width: 100vw;
+    height:100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(background.jfif);
+    background-size: cover;
+}

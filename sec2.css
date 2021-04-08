@@ -1,0 +1,173 @@
+
+#features{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    
+  }
+  .container2 {
+    
+    position: relative;
+    margin: auto;
+    
+    display: grid;
+    
+  }
+  
+  .items {
+   
+    width: 50vw;
+    background: #fffffe;
+    box-shadow: 0 3px 6px rgba(black,0.16), 0 3px 6px rgba(black,0.23);
+    position: relative;
+    
+    
+  }
+  
+  
+ 
+  
+  
+  
+  
+  
+
+
+.carousel-item{
+    width:10vw;
+    align-items:center;
+}
+
+.carousel-item img{
+    height: 83vh;
+    width:auto;
+    position:relative;
+    left:50%;
+    transform:translate(-50%);
+    
+}
+
+
+.items-body{
+    color:green;
+    margin-top: 10vh;
+    font-size: 35px;
+    
+    font-weight:bold;
+    
+}
+
+
+.items-head{
+    margin-top: 7vh;;
+}
+
+.items-head p{
+    padding: 5px 20px;
+    color: #0B5AA2;
+    font-weight: bold;
+    font-size: 50px;
+    
+  }
+  
+  .items-head hr {
+    width: 20%;
+    margin: 0px 30px;
+    border: 1px solid #0B5AA2;
+  }
+  }
+  
+  .items-head hr {
+    width: 20%;
+    margin: 0px 30px;
+    border: 1px solid #0B5AA2;
+  }
+  
+  
+
+
+
+/* #featureDesc:before{
+    content:'';
+    animation:animateFeature infinite 12s;
+}
+
+@keyframes animateFeature{
+    0%{
+        content:'Go Online and receive orders';
+    }
+    15%{
+        content:'Go Online and receive orders';
+    }
+    40%{
+        content:'Notify Customer When Order is Ready & update prices';
+    }
+
+    70%{
+        content:'Rate Customer Behaviour';}
+    100%{
+        content:'Manage Your Inventory';}
+} */
+
+
+
+@media screen and (max-width: 500px){
+
+    .items {
+        width: 85vw;
+        height:auto;
+        position: relative;
+        top: 10%;  }
+
+    .carousel-item{
+        width:10vw;
+        align-items:center;
+    }
+    
+    .carousel-item img{
+        height: 60vh;
+        width:auto;
+        position:relative;
+        display:flex;
+        align:center;
+        
+        
+    }
+    
+    
+    .items-body{
+        color:green;
+        margin-top: 10vh;
+        font-size: 20px;
+        text-align:center;
+        font-weight:bold;
+        
+    }
+    
+    
+    .items-head{
+        margin-top: 7vh;
+        text-align: center;
+    }
+
+    .items-head p{
+        padding: 5px 20px;
+        color: #0B5AA2;
+        font-weight: bold;
+        font-size: 30px;
+        
+      }
+      
+      .items-head hr {
+        width: 20%;
+        margin: 0px 30px;
+        border: 1px solid #0B5AA2;
+      }
+      }
+      
+      .items-head hr {
+        width: 20%;
+        margin: 0px 30px;
+        border: 1px solid #0B5AA2;
+      }
+
+}

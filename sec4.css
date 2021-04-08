@@ -1,0 +1,70 @@
+.sec4{
+    height:100vh;
+    /* background-color:#042845F4; */
+    background-color: #254E58;
+    color:white;
+    
+}
+
+.sec4 h2{
+    text-align:center;
+    margin-top: 40px;
+    font-size:45px;
+}
+
+#qrcodes img{
+ 
+    width:25vw;
+    height:auto;
+    position: relative;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%)
+
+}
+
+.btn{
+    position: relative;
+    top:12%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:50px;
+}
+
+@media screen and (max-width: 500px){
+
+    .sec4{
+        height:120vh;
+        /* background-color:rgb(2, 42, 95); */
+    background-color: #254E58;
+        color:wheat;
+        
+    }
+    .sec4 h2{
+        text-align:center;
+        margin-top: 20px;
+        font-size:25px;
+        margin-bottom:0px;
+     
+    }
+    
+    #qrcodes img{
+     
+        width:70vw;
+        height:auto;
+        margin-top: 0px;
+        
+    }
+
+    .btn{
+        position: relative;
+        margin-bottom: 20px;
+    
+}
+
+
+
+
+
+
+
