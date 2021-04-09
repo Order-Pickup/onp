@@ -1,7 +1,7 @@
 .sec4{
     height:100vh;
     /* background-color:#042845F4; */
-    background-color: #254E58;
+    background-color: #212529;
     color:white;
     
 }
@@ -14,12 +14,13 @@
 
 #qrcodes img{
  
-    width:25vw;
+    width:22vw;
     height:auto;
     position: relative;
     top:40%;
     left:50%;
-    transform:translate(-50%,-50%)
+    transform:translate(-50%,-50%);
+    margin-bottom:15px;
 
 }
 
@@ -36,7 +37,7 @@
     .sec4{
         height:120vh;
         /* background-color:rgb(2, 42, 95); */
-    background-color: #254E58;
+    background-color: #212529;
         color:wheat;
         
     }
@@ -61,7 +62,7 @@
         margin-bottom: 20px;
     
 }
-
+}
 
 
 
