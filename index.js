@@ -29,7 +29,7 @@ changeText(element, texts, time,k);
   $(window).scroll(function(){
    var scroll = $(window).scrollTop();
      if(scroll>600){
-      $("#nav").css("background-color", "#254E58");
+      $("#nav").css("background-color", "#212529");
        }
        else {
       $("#nav").css("background", "transparent");
