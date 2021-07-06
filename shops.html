@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    Content-Security-Policy: style-src 'unsafe-inline';
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./../CSS/navbar.css">
+    <link rel="stylesheet" href="./../CSS/stylesheet.css">
+    <link rel="stylesheet" href="shops.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="nav" id="nav" style="background: black; text-decoration: none;">
+        <!-- <div class="logo">
+          <img src="Logo.png" alt="">
+        </div> -->
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="#download">Download</a></li>
+        </ul>
+    </div>
+    <br><br>
+
+    <div class="container">
+        <div class="shopCards row mt-3" id="shopCards">
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js" ></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+    <!-- <script src="./../JS/shopData.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script nonce="12331">
+        var firebaseConfig = {
+            apiKey: "AIzaSyAcS9qT-M45i7cin682B9IkfbYW2JO0JBQ",
+            authDomain: "orderandpickup-731bd.firebaseapp.com",
+            databaseURL: "https://orderandpickup-731bd-default-rtdb.firebaseio.com",
+            projectId: "orderandpickup-731bd",
+            storageBucket: "orderandpickup-731bd.appspot.com",
+            messagingSenderId: "1098866334933",
+            appId: "1:1098866334933:web:1893396a7d45158c81d65c",
+            measurementId: "G-HGE4DR3ELZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        //   firebase.analytics();
+
+        var db = firebase.firestore()
+
+        const list_div = document.querySelector("#list_div");
+        const shopCards = document.getElementById('shopCards');
+        
+        const categoryArray = ['Kirana / General, FMCG & Grocery', 'Medical Stores/Pharmacy', 'Dairy Shop', ' Bakery and Cake Shop', 'Restaurant / Food outlets', 'Books and Stationery', 'other']
+
+        function showProduct(id, shopNum) {
+            // var ProdHtml = ``;
+            let products = document.createElement("div");
+            products.setAttribute("id", `${shopNum}`);
+            products.innerHTML=``;
+            db.collection("storeowners").doc(`${id}`).collection("items").get()
+                .then(querySnapshot => {
+                    querySnapshot.forEach(doc => {
+                        // console.log(doc.id, " => ", doc.data());
+
+                        console.log(`${shopNum}`)
+
+
+                        var prodCard = 
+                        `<div class="card mb-3 mx-2" nonce="2726c7f26c" style="display:flex; max-width:540px";">
+                           
+                        <div class="card-body d-flex flex-column">
+                        <h3 class="card-title">${doc.data().itemName}</h3>
+                        <p>Item Price: ${doc.data().itemPrice}</p>
+                        <p class="card-text"> Product Description</p><br>   
+                        
+                    </div>
+                </div>
+            </div>
+        </div>  `;
+
+
+
+                        // var prodHTML=document.getElementById(`${shopNum}`);
+                        products.innerHTML += prodCard;
+
+
+
+
+                    });
+                });
+            console.log(products.innerHTML)
+
+            let newWindow = open(`/${shopNum}.html`, `abc`)
+            newWindow.focus();
+
+
+
+            newWindow.onload = function () {
+
+                let html = products.innerHTML;
+                
+                newWindow.document.write(`<html>
+                <head>
+                    
+                    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com/; style-src-elem https://fonts.googleapis.com https://cdn.jsdelivr.net  'unsafe-inline' 'sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' ;">
+
+                    <title>Print it!</title> 
+                    
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+                </head>
+                <body>`);
+                
+                // newWindow.document.appendChild(html)
+
+                newWindow.document.body.insertAdjacentHTML('beforeend',html)
+            };
+
+        }
+
+        var shopNumber = 0;
+
+        db.collection("storeowners").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+
+                var shopUid = doc.data().uid;
+                var shopId = doc.id;
+
+                shopNumber += 1;
+                // var shop`${shopNumber}`=doc.data().u
+                // console.log(doc.data().uid)
+                // doc.data() is never undefined for query doc snapshots
+                shopCards.innerHTML += `<div class="card mb-3 mx-2" style="display:flex; max-width:540px";">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="${doc.data().photo}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${doc.data().storename}</h5>
+                        <p class="card-text">This is ${categoryArray[parseInt(doc.data().storetype) - 1]} Store</p><br>
+                        <p>Location : ${doc.data().city}, ${doc.data().State} Pincode : ${doc.data().Pincode}</p>
+                        <div class="d-grid gap-2 col-6 mx-auto mt-auto" >
+                            <button class="btn btn-primary mt-auto" type="button" onclick="showProduct('${doc.id}','${shopNumber}')">Show Products</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>`
+
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
