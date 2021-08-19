@@ -7,8 +7,8 @@ window.addEventListener("scroll",function(){
 $(document).ready(function(){
     $(window).scroll(function(){
      var scroll = $(window).scrollTop();
-       if(scroll>600){
-        $("#nav").css("background-color", "#212529");
+       if(scroll>150){
+        $("#nav").css("background-color", "#d3d3d3");
          }
          else {
         $("#nav").css("background", "transparent");
